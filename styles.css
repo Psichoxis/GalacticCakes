@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -8,52 +9,163 @@
 /* HEADER */
 
 header {
-    background-color: black;
-    font-size: 1.5rem;
+  background-color: black;
+  font-size: 1.5rem;
 }
-a img{
-    border-radius: 10px;
+
+a img {
+  border-radius: 10px;
 }
-.navbar{ 
-    margin-left: 2rem;
-    --bs-navbar-brand-font-size: 2rem !important;
+
+.navbar {
+  margin-left: 2rem;
+  --bs-navbar-brand-font-size: 2rem !important;
 }
 
 /* FIN HEADER */
 
+
+/* MAIN */
+
+body {
+  background-image: url(img/fondo.jpg);
+  background-size: cover;
+}
+.titulo{
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  color: white;
+}
+.card-img-top {
+  width: auto;
+  height: auto;
+}
+
+.btn-dark:hover {
+  background-color: rgb(52, 91, 218) !important;
+}
+
 /* BOTON CARRO */
 
-.btn-carro{
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    background-color: #29434e;
-    padding: 15px 25px;
-    border-radius: 20px;
-    color: #fff;
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    transition: all 0.3s ease 0s;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-    z-index: 99;
+.btn-carro {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: rgb(50, 168, 219);
+  padding: 15px 25px;
+  border-radius: 20px;
+  color: #fff;
+  position: fixed;
+  right: 40px;
+  top: 30px;
+  transition: all 0.3s ease 0s;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  z-index: 99;
 }
-.btn-carro:hover{
-	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
-	transform: translateY(-7px);
+
+.btn-carro:hover {
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-7px);
+}
+
+#offcanvasRightLabel {
+  font-size: 2.5rem;
 }
 
 /* FIN BOTON CARRO */
 
-/* body{
-    background-image: url(img/fondo.jpg);
-    background-size: cover;
-} */
-
-
-.card-img-top{
-    width: auto;
-    height: auto;
+.aboutUs{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  margin-top: 2rem;
+  font-size: 2rem;
+  border-radius: 30px;
+  box-shadow: #000;
 }
 
+.titleAU{
+  color: grey;
+  font-size: 3rem;
+}
+
+.box1 {
+  background: radial-gradient(white, rgba(255, 255, 255, 0.3));
+  padding: 15px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 15px;
+  border-color: rgb(42, 108, 230);
+  width: 40rem;
+  margin: auto;
+  margin-bottom: 15px;
+  margin-top: 2rem;
+  animation-name: aparecer;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+}
+
+.contact1 {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.contact2 {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 25px;
+  color: black;
+}
+.contact2:hover {
+  background-color: #39bbc4;
+}
+
+.btn-final{
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(245, 37, 37);
+  color: white;
+  padding: 6px;
+  position: absolute; 
+  bottom: 25px;
+  right: 25px;
+}
+/* FIN MAIN */
+
+
+/* FOOTER */
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: black !important;
+  color: white;
+  justify-content: center;
+  height: max-content;
+  padding-top: 20px;
+  text-align: center;
+}
+
+a {
+  list-style: none !important;
+  text-decoration: none !important;
+  color: white;
+  font-size: 25px;
+}
+
+a:hover {
+  color: rgb(36, 114, 120);
+}
+
+.footlist {
+  display: inline;
+  text-align: center;
+  line-height: 100px;
+  margin: 25px;
+}
+
+/* FIN DEL FOOTER */

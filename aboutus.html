@@ -1,21 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <title>Quienes Somos?</title>
+  <script src="https://kit.fontawesome.com/627ac988d6.js" crossorigin="anonymous"></script>
+  <title>Quienes somos?</title>
 </head>
 <body>
+  
+  <!-- NAV HEADER-->
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand col-lg-6" href="index.html">
+          <img src="img/logo.png" alt="" width="80" height="80" class="d-inline-block align-text-center">
+          Galactic Cakes</a>
+        <button class="navbar-toggler col-lg-6" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="aboutus.html">¿Quienes Somos?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- FIN NAV HEADER -->
 
+  <!-- MAIN -->
+  <main>
+    <div class="aboutUs">
+      <h2 class="titleAU">Quienes somos?</h2>
+      <p><b>Galactic Cakes</b> es un emprendimiento de Postres creado por Julieta Picatto, situado en la ciudad de Santa Fé, Argentina; Buscamos desde hace 3 años innovar en la elaboración de postres individuales para el goce de cada santafesino.</p>
+      <p>La idea comenzó a partir de un hobby y fue tomando forma al ver el tremendo impacto que iba generando en las personas del Barrio Roma que cada vez más apoyaban el proyecto.</p>
+      <p>Hoy en dia nos encontramos en cada una de las redes sociales activamente y acabamos de incorporar el servicio de PedidosYa! para aumentar el alcance de nuestros clientes a toda la capital!</p>
+    </div>
+  </main>
+  <!-- FIN MAIN -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  <!-- FOOTER -->
+  <footer class="text-white text-center d-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 mb-md-0">
+          <h5 class="mb-3 mt-2">Síguenos en nuestras redes!</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="footlist">
+              <a href="https://www.facebook.com/Galactic.Cakes" class="fa fa-facebook" alt="facebook"></a>
+            </li>
+            <li class="footlist">
+              <a href="https://discord.gg/Y5m6sepWYK" class="fab fa-discord" alt="discord"></a>
+            </li>
+            <li class="footlist">
+              <a href="https://www.instagram.com/galactic.cakes/" class="fa fa-instagram" alt="instagram"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-md-0">
+          <h5 class="mb-3 mt-2">Encontranos en PedidosYa!</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="footlist">
+              <a href="https://www.pedidosya.com.ar/restaurantes/Santa+Fe/galactic-cake-menu" class="fa fa-motorcycle"
+                alt="pedidosya"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-md-0">
+          <h5 class="mb-3 mt-2">Contacto/Soporte</h5>
+          <ul class="list-unstyled">
+            <li class="footlist">
+              <a href="https://wa.me/5493425412801" class="fa fa-whatsapp" alt="numero de contacto"></a>
+            </li>
+            <li class="footlist">
+              <a href="mailto:julietapicatto@hotmail.com" class="fa fa-envelope" alt="email de contacto"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <small class="text-center">&copy; 2022 <b>GALACTIC CAKES</b> - Todos los derechos reservados.</small>
+  </footer>
+  <!-- FIN FOOTER -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
   </script>
   <script src="script.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

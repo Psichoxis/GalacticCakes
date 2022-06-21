@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/627ac988d6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <title>Galactic Cakes</title>
 </head>
-
 <body>
+
   <!-- NAV HEADER-->
   <header>
     <nav class="navbar navbar-expand-sm navbar-dark">
@@ -29,7 +31,7 @@
               <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="integrantes.html">¿Quienes Somos?</a>
+              <a class="nav-link" href="aboutus.html">¿Quienes Somos?</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contacto.html">Contacto</a>
@@ -41,91 +43,144 @@
   </header>
   <!-- FIN NAV HEADER -->
 
-  <!-- OFFCANVAS CARRO -->
-  <button class="btn btn-primary btn-carro" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-    aria-controls="offcanvasRight">CARRITO</button>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Carrito</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="container">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Item</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Acción</th>
-              <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody id="items"></tbody>
-          <tfoot>
-            <tr id="footer">
-              <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-            </tr>
-          </tfoot>
-        </table>
+  <!-- MAIN -->
+  <main>
+
+    <!-- OFFCANVAS CARRO -->
+    <button class="btn btn-primary btn-carro" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight">CARRITO <i class="fa fa-shopping-cart"></i></button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Carrito</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acción</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="items"></tbody>
+            <tfoot>
+              <tr id="footer">
+                <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <button class="btn-final" onclick="finalizar()">Finalizar compra</button>
       </div>
     </div>
-  </div>
-  <!-- FIN OFFCANVAS CARRO -->
+    <!-- FIN OFFCANVAS CARRO -->
 
-  <main>
-    
-    <h4>Productos</h4>
+    <h4 class="titulo">Catálogo de Postres</h4>
+    <hr>
     <div class="row" id="cards"></div>
+    <br>
+    <br>
 
-    <template id="template-footer">
-        <th scope="row" colspan="2">Total productos</th>
-        <td>10</td>
-        <td>
-            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-                Vaciar Carrito
-            </button>
-        </td>
-        <td class="font-weight-bold">$ <span>5000</span></td>
-    </template>
-    
-    <template id="template-carrito">
-      <tr>
-        <th scope="row">id</th>
-        <td>Café</td>
-        <td>1</td>
-        <td>
-            <button class="btn btn-info btn-sm">
-                +
-            </button>
-            <button class="btn btn-danger btn-sm">
-                -
-            </button>
-        </td>
-        <td>$ <span>500</span></td>
-      </tr>
-    </template>
+  </main>
+  <!-- FIN MAIN -->
 
-    <template id="template-card">
-      <div class="col-2 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <h5>Titulo</h5>
-            <img src="" alt="" class="card-img-top">
-            <p>precio</p>
-            <button class="btn btn-dark">Comprar</button>
-          </div>
+  <!-- FOOTER -->
+  <footer class="text-white text-center d-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 mb-md-0">
+          <h5 class="mb-3 mt-2">Síguenos en nuestras redes!</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="footlist">
+              <a href="https://www.facebook.com/Galactic.Cakes" class="fa fa-facebook" alt="facebook"></a>
+            </li>
+            <li class="footlist">
+              <a href="https://discord.gg/Y5m6sepWYK" class="fab fa-discord" alt="discord"></a>
+            </li>
+            <li class="footlist">
+              <a href="https://www.instagram.com/galactic.cakes/" class="fa fa-instagram" alt="instagram"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-md-0">
+          <h5 class="mb-3 mt-2">Encontranos en PedidosYa!</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="footlist">
+              <a href="https://www.pedidosya.com.ar/restaurantes/Santa+Fe/galactic-cake-menu" class="fa fa-motorcycle"
+                alt="pedidosya"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-md-0">
+          <h5 class="mb-3 mt-2">Contacto/Soporte</h5>
+          <ul class="list-unstyled">
+            <li class="footlist">
+              <a href="https://wa.me/5493425412801" class="fa fa-whatsapp" alt="numero de contacto"></a>
+            </li>
+            <li class="footlist">
+              <a href="mailto:julietapicatto@hotmail.com" class="fa fa-envelope" alt="email de contacto"></a>
+            </li>
+          </ul>
         </div>
       </div>
-    </template>
-  </main>
+    </div>
+    <small class="text-center">&copy; 2022 <b>GALACTIC CAKES</b> - Todos los derechos reservados.</small>
+  </footer>
+  <!-- FIN FOOTER -->
 
-
+  <!-- TEMPLATES -->
+  <template id="template-footer">
+    <th scope="row" colspan="2">Total productos</th>
+    <td></td>
+    <td>
+      <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+        Vaciar Carrito
+      </button>
+    </td>
+    <td class="font-weight-bold"><span></span></td>
+  </template>
+  <template id="template-carrito">
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td>
+        <button class="btn btn-info btn-sm">
+          +
+        </button>
+        <button class="btn btn-danger btn-sm">
+          -
+        </button>
+      </td>
+      <td><span></span></td>
+    </tr>
+  </template>
+  <template id="template-card">
+    <div class="col-2 mb-2">
+      <div class="card">
+        <img src="" alt="" class="card-img-top">
+        <div class="card-body">
+          <h5></h5>
+          <b>Precio: $</b><i></i>
+          <br>
+          <br>
+          <button class="btn btn-dark">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </template>
+  <!-- FIN TEMPLATES -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
   </script>
   <script src="script.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

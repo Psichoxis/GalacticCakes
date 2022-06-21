@@ -7,26 +7,29 @@ const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
 let carrito = {}
 
-// Eventos
-// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado
-document.addEventListener('DOMContentLoaded', e => { fetchData() });
+document.addEventListener('DOMContentLoaded', e => { 
+    fetchData()
+    if(localStorage.getItem('carrito')){
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        pintarCarrito()
+    }
+});
 cards.addEventListener('click', e => { addCarrito(e) });
 items.addEventListener('click', e => { btnAumentarDisminuir(e) })
 
-// Traer productos
+/* API DE PRODUCTOS */
 const fetchData = async () => {
     const res = await fetch('productos.json');
     const data = await res.json()
-    // console.log(data)
     pintarCards(data)
 }
 
-// Pintar productos
+/* PINTAR PRODUCTOS */
 const pintarCards = data => {
     data.forEach(item => {
         templateCard.querySelector('h5').textContent = item.title
         templateCard.querySelector('img').setAttribute("src", item.url)
-        templateCard.querySelector('p').textContent = item.precio
+        templateCard.querySelector('i').textContent = item.precio
         templateCard.querySelector('button').dataset.id = item.id
         const clone = templateCard.cloneNode(true)
         fragment.appendChild(clone)
@@ -34,25 +37,35 @@ const pintarCards = data => {
     cards.appendChild(fragment)
 }
 
-// Agregar al carrito
+/* AGREGAR AL CARRITO */
 const addCarrito = e => {
     if (e.target.classList.contains('btn-dark')) {
-        // console.log(e.target.dataset.id)
-        // console.log(e.target.parentElement)
         setCarrito(e.target.parentElement)
+        Toastify({
+            text: `Producto agregado correctamente!`,
+            duration: 2000,
+            newWindow: true,
+            close: true,
+            gravity: "bottom",
+            position: "left", 
+            stopOnFocus: true,
+            style: {
+                background: "radial-gradient(#000000 0%, #000000 100%)",
+            },
+        onClick: function() {  
+        }
+      }).showToast();
     }
     e.stopPropagation()
 }
 
 const setCarrito = item => {
-    // console.log(item)
     const producto = {
         title: item.querySelector('h5').textContent,
-        precio: item.querySelector('p').textContent,
+        precio: item.querySelector('i').textContent,
         id: item.querySelector('button').dataset.id,
         cantidad: 1
     }
-    // console.log(producto)
     if (carrito.hasOwnProperty(producto.id)) {
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
@@ -71,7 +84,7 @@ const pintarCarrito = () => {
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
         templateCarrito.querySelector('span').textContent = producto.precio * producto.cantidad
         
-        //botones
+        /* BOTONES */
         templateCarrito.querySelector('.btn-info').dataset.id = producto.id
         templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
 
@@ -81,6 +94,8 @@ const pintarCarrito = () => {
     items.appendChild(fragment)
 
     pintarFooter()
+
+    localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
 const pintarFooter = () => {
@@ -93,13 +108,13 @@ const pintarFooter = () => {
         return
     }
     
-    // sumar cantidad y sumar totales
+    /* SUMAR CANTIDADES Y TOTAL */
     const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
-    const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
-    // console.log(nPrecio)
+    const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio , 0)
 
     templateFooter.querySelectorAll('td')[0].textContent = nCantidad
     templateFooter.querySelector('span').textContent = nPrecio
+    
 
     const clone = templateFooter.cloneNode(true)
     fragment.appendChild(clone)
@@ -110,12 +125,26 @@ const pintarFooter = () => {
     boton.addEventListener('click', () => {
         carrito = {}
         pintarCarrito()
+        Toastify({
+            text: `Carrito vaciado correctamente!`,
+            duration: 2000,
+            newWindow: true,
+            close: true,
+            gravity: "bottom",
+            position: "left", 
+            stopOnFocus: true,
+            style: {
+                background: "radial-gradient(#000000 0%, #000000 100%)",
+            },
+        onClick: function() {  
+        }
+      }).showToast();
     })
-
 }
 
+
+
 const btnAumentarDisminuir = e => {
-    // console.log(e.target.classList.contains('btn-info'))
     if (e.target.classList.contains('btn-info')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
@@ -134,4 +163,22 @@ const btnAumentarDisminuir = e => {
         pintarCarrito()
     }
     e.stopPropagation()
+}
+
+function finalizar() {
+    if(Object.keys(carrito).length === 0){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Su carrito esta vacio!',
+          })
+    } else {
+        Swal.fire({
+            icon: 'success',
+            title: 'Enhorabuena!',
+            text: 'Esperamos que disfrute su pedido!',
+          })
+          carrito = {}
+          pintarCarrito()
+    }
 }
