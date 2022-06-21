@@ -1,0 +1,74 @@
+[
+    {
+      "precio": 500,
+      "id": 1,
+      "title": "Tiramisú",
+      "url": "img/tiramisu.jpeg"
+    },
+    {
+      "precio": 550,
+      "id": 2,
+      "title": "Choco oreo",
+      "url": "img/chocooreo.jpeg"
+    },
+    {
+      "precio": 500,
+      "id": 3,
+      "title": "Brownie",
+      "url": "img/brownie.jpeg"
+    },
+    {
+      "precio": 550,
+      "id": 4,
+      "title": "Oreo",
+      "url": "img/oreo.jpeg"
+    },
+    {
+      "precio": 500,
+      "id": 5,
+      "title": "Chocoflan",
+      "url": "img/chocoflan.jpeg"
+    },
+    {
+      "precio": 500,
+      "id": 6,
+      "title": "Chocotorta",
+      "url": "img/chocotorta.jpeg"
+    },
+    {
+      "precio": 500,
+      "id": 7,
+      "title": "Crema Moka",
+      "url": "img/moka.jpeg"
+    },
+    {
+      "precio": 500,
+      "id": 8,
+      "title": "Lemon Pie",
+      "url": "img/lemonpie.jpeg"
+    },
+    {
+      "precio": 500,
+      "id": 9,
+      "title": "Lemon Brownie",
+      "url": "img/lemonbrownie.jpeg"
+    },
+    {
+      "precio": 700,
+      "id": 10,
+      "title": "Budín de Mandarina",
+      "url": "img/budin.jpeg"
+    },
+    {
+      "precio": 250,
+      "id": 11,
+      "title": "Alfajor de Maicena",
+      "url": "img/alfajormaicena.jpeg"
+    },
+    {
+      "precio": 250,
+      "id": 12,
+      "title": "Alfajor de Chocolate",
+      "url": "img/alfajorchoco.jpeg"
+    }
+  ]
